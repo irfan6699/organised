@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Row Container */
+        .row1 {
+            display: flex;
+            height: 60px;
+            width: 100%; /* Ensures the rows fill the container */
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: bold;
+            
+        }
+
+        /* Container for rows */
+        .row-combination {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Adds spacing between rows */
+           
+        }
+
+        .row1 p {
+            margin:0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            height: 40px;
+            width: 100%;
+            background-color: #ffe4c4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav:hover {
+            background-color: #ffc107;
+        }
+
+        /* Sidebar Box */
+        .text-box {
+            width: 400px;
+            height: 100vh;
+            background-color: #fff7e6;
+            position: fixed;
+            right: -500px;
+            display: flex;
+            top:0;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: right 0.4s ease;
+        }
+
+        /* Active Class for Sidebar */
+        .active {
+            right: 0;
+        }
+
+        /* Label Styling */
+        .text-box label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Input and Button Styling */
+        .text-box input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .text-box button {
+            padding: 10px;
+            font-size: 14px;
+            background-color: #5dbb63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .text-box button:hover {
+            background-color: #379a42;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav">Toggle Form</div>
+
+    <!-- Row Combination -->
+    <div class="row-combination"></div>
+
+    <!-- Slide-out Sidebar -->
+    <div class="text-box">
+        <label for="name">Name</label>
+        <input class="name" placeholder="Enter name">
+        <label for="type">Type</label>
+        <input class="type" placeholder="Enter type">
+        <label for="contact">Contact Us</label>
+        <input class="contact" placeholder="Enter contact">
+        <label for="state">State</label>
+        <input class="state" placeholder="Enter state">
+        <button class="enter">Enter</button>
+    </div>
+
+    <script>
+     let colourCount = 0;    
+    const nav = document.querySelector('.nav');
+    const box = document.querySelector('.text-box');
+    const enter = document.querySelector('.enter');
+    const combination = document.querySelector('.row-combination');
+
+    // Toggle sidebar visibility
+    nav.addEventListener("click", () => {
+        box.classList.toggle('active');
+    });
+
+    // Update row1 with user input
+    enter.addEventListener("click", () => {
+        colourCount++;
+        
+        // Create a new row with the user input
+        const newRow = document.createElement('div');
+        newRow.classList.add('row1');
+        newRow.innerHTML = `
+            <p>Name -</p>
+            <p id="name-output">${document.querySelector('.name').value}</p>
+            <p>Type -</p>
+            <p id="type-output">${document.querySelector('.type').value}</p>
+            <p>Contact -</p>
+            <p id="contact-output">${document.querySelector('.contact').value}</p>
+            <p>State -</p>
+            <p id="state-output">${document.querySelector('.state').value}</p>
+        `;
+///hdhje
+       
+        combination.appendChild(newRow);
+        
+        
+        newRow.style.backgroundColor = (colourCount % 2 === 0) ? "red" : "blue";
+
+       
+        document.querySelector('.name').value = '';
+        document.querySelector('.type').value = '';
+        document.querySelector('.contact').value = '';
+        document.querySelector('.state').value = '';
+    });
+    </script>
+</body>
+</html>

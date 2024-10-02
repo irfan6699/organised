@@ -1,0 +1,94 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+    background-color:  #D8E3E7;
+}
+.navbar2{
+    width: 100%;
+    height: 15px;
+    background-color:  #556B2F;
+}
+
+
+/* Main grid container for the stories */
+.story-grid, .story-grid1,.story-grid2 ,.story-grid3{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for better responsiveness */
+    gap: 25px; /* More space between story boxes */
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Story box styling */
+.story-box {
+    background-color: #E1DCD4; /* Pale yellow box */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 350px;
+    text-align: center; /* Center-align text */
+}
+
+/* Hover effect on story boxes */
+.story-box:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger hover shadow */
+}
+
+/* Story box title styling */
+.story-box h3 {
+    color: #B04A5B; /* Muted red for title */
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Story text styling */
+.story-box p {
+    color: #333;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* Image styling inside the story box */
+.story-box img {
+    height: auto;
+    width: 100%;
+    max-height: 180px; /* Limit the height for consistency */
+    object-fit: cover; /* Ensure images cover the space without distortion */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .story-box {
+        min-height: 280px; /* Smaller height for smaller screens */
+        padding: 15px;
+    }
+    
+    .story-box img {
+        max-height: 150px; /* Reduce image height */
+    }
+    
+    .story-box h3 {
+        font-size: 16px;
+    }
+    
+    .story-box p {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="shopping.css"> <!-- You can use the same CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div class="listCart"></div>
+        <div class="grandTotal">
+            <h2>Total: <span id="totalPrice">0</span></h2>
+        </div>
+        <div class="btn">
+            <button class="buyNow">Buy</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let products = [];
+
+        // Function to load cart data from localStorage
+        const loadCartData = () => {
+            // Get cart data from localStorage
+            if (localStorage.getItem('cart')) {
+                cart = JSON.parse(localStorage.getItem('cart'));
+                addCartToHTML();
+            }
+
+            // Fetch product data (simulating a real fetch for consistency)
+            fetch('products.json')
+                .then(response => response.json())
+                .then(data => {
+                    products = data;
+                    addCartToHTML();
+                });
+        };
+
+        // Function to add cart data to HTML
+        const addCartToHTML = () => {
+            const listCartHTML = document.querySelector('.listCart');
+            let grandTotal = 0;
+
+            if (cart.length > 0) {
+                cart.forEach(item => {
+                    let newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    newItem.dataset.id = item.product_id;
+
+                    let positionProduct = products.findIndex((value) => value.id == item.product_id);
+                    let info = products[positionProduct];
+                    let totalPrice = info.price * item.quantity;
+
+                    grandTotal += totalPrice;
+
+                    newItem.innerHTML = `
+                        <div class="image"><img src="${info.image}" alt=""></div>
+                        <div class="name">${info.name}</div>
+                        <div class="totalPrice">${totalPrice}</div>
+                        <div class="quantity">
+                            <span class="number">${item.quantity}</span>
+                        </div>
+                    `;
+                    listCartHTML.appendChild(newItem);
+                });
+            }
+
+            // Update the total price
+            document.getElementById('totalPrice').innerText = grandTotal;
+        };
+
+        // Load the cart data on page load
+        window.onload = loadCartData;
+
+        // Action for the Buy button
+        document.querySelector('.buyNow').addEventListener('click', () => {
+            alert("Thank you for your purchase!");
+            localStorage.removeItem('cart'); // Clear cart after purchase
+            window.location.href = "index.html"; // Redirect to homepage
+        });
+    </script>
+</body>
+</html>

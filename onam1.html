@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+        
+        h2 {
+    text-align: center; /* Center the title */
+    font-size: 36px; /* Large font size for emphasis */
+    color: #2E4C6D; /* Dark blue matching the theme */
+    margin-top: 20px; /* Space between the navbar and the title */
+    margin-bottom: 20px; /* Space below the title */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Capitalize all letters for a strong impact */
+    letter-spacing: 2px; /* Add letter spacing for a modern look */
+}
+        /* Main layout */
+        .full {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            height: auto;
+            margin-top: 20px;
+            padding: 0 20px; /* Added padding for spacing */
+        }
+
+        .large {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            height: auto;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 66%;
+            height: 400px;
+            background-image: url('images/onam.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #333;
+            background-color: #e6f2ff; /* Light blue for empty spaces */
+            border-radius: 10px;
+        }
+
+        .right-column {
+            margin-left: 10px;
+            width: 33%;
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            height: 400px;
+        }
+
+        .right-column div {
+            background-size: contain;
+            background-position: center;
+            background-color: #e6ffe6; /* Light green for right column boxes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+        .right-column .img1 {
+            background-image: url('images/onamacc1.jpg');
+            height: 195px;
+        }
+
+        .right-column .img2 {
+            background-image: url('images/onamacc2.jpg');
+            height: 195px;
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            height: 150px;
+        }
+
+        .bottom div {
+            background-size: contain;
+            background-position: center;
+            background-color: #e6ffe6; /* Light green for bottom boxes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+        
+        .bottom .img1 {
+            background-image: url('images/onamacc3.jpg');
+            background-size: cover;
+           
+        }
+
+        .bottom .img2 {
+            background-image: url('images/onamacc4.jpg');
+            background-size: cover;
+        }
+
+        .bottom .img3 {
+            background-image: url('images/onamacc5.jpg');
+            background-size: cover;
+        }
+        /* Information column */
+        .information {
+            width: 30%;
+            background-color: #e6f2ff; /* Light blue for information box */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+        }
+
+        .information h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .information h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .information h3 {
+            font-size: 18px;
+            color: #2E4C6D;
+            margin-bottom: 6px;
+        }
+
+        .information h4 {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .information .price {
+            font-size: 24px;
+            color: #8D6B4C; /* Olive green for price */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Row of related products */
+        .row1 {
+            display: flex;
+            width: 100%;
+            height: 250px;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+
+        .box {
+            width: 23%;
+            background-color: #e6f2ff; /* Light blue for boxes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .box.img1 {
+            background-image: url('images/onamdress1.jpg');
+        }
+
+        .box.img2 {
+            background-image: url('images/onamdress2.jpg');
+        }
+
+        .box.img3 {
+            background-image: url('images/onamdress3.jpg');
+        }
+
+        .box.img4 {
+            background-image: url('images/onamdress4.jpg');
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h2>ONAM COMBINATION</h2> 
+    <div class="full">
+        <div class="large">
+            <div class="main-container">
+                <div class="main-image"></div>
+                <div class="right-column">
+                    <div class="img1"></div>
+                    <div class="img2"></div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img3"></div>
+            </div>
+        </div>
+        <div class="information">
+            <h1>TRADITIONAL ONAM SAREE </h1>
+            <h2>MATERIAL - COTTON</h2>
+            <h2>USER - FEMALE</h2>
+
+            <h3>DESCRIPTION</h3>
+            <h4>SPECIAL KERALA SAREE WITH BLOUSE PIECE.</h4>
+            <h4>FLOWER PATTERN ALL AROUND WITH GOLD LININGS.</h4>
+
+            <h2>PRICE- ₹1999</h2>
+        </div>
+    </div>
+
+    <div class="row1">
+        <div class="box img1"></div>
+        <div class="box img2"></div>
+        <div class="box img3"></div>
+        <div class="box img4"></div>
+    </div>
+</body>
+</html>
+

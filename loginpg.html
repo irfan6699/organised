@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-image: linear-gradient(to right, #100169, #3bdadb);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            width: 400px;
+            padding: 20px;
+            background-color: aliceblue;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form div{
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        input {
+            width: calc(100% - 30px);
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .displaycapctha{
+            margin-top: 15px;
+            text-align: center;
+            background-color: rgb(94, 96, 96);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            width: 92%;
+        }
+        .enter{
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 20px;
+            background-color: #3bdadb;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        .enter:hover {
+            background-color: #100169;
+        }
+        .login {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #100169;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+        }
+        .login:hover {
+            background-color: #3bdadb;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Form</title>
+</head>
+<body>
+    <div class="form">
+        <div>
+            <label for="name">NAME</label>
+            <input id="name" type="text" placeholder="Enter your name">
+        </div>
+        <div>
+            <label for="phone">MOBILE NUMBER</label>
+            <input id="phone" type="text" placeholder="Enter your mobile number">
+        </div>
+        <div class="displaycapctha"></div>
+        <div>
+            <input class="capctha" placeholder="Enter CAPTCHA">
+        </div>
+        <button class="enter" onclick="check();">Submit</button>
+        <button class="login">Login</button>
+    </div>
+    <script>
+        const display=document.querySelector(`.displaycapctha`);
+        let caparr="";
+        //array for alphabet//
+        let alphabet = Array.from(Array(26)).map((e, i) => String.fromCharCode(i + 97));
+//for number//
+const digits = Array.from(Array(10)).map((e, i) => String.fromCharCode(i + 48));
+//combining//
+const allvalue = alphabet.concat(digits);
+
+function generatingCap(){
+    for(let i=0;i<6;i++){
+        const generating=Math.floor(Math.random()*allvalue.length);
+        caparr+=allvalue[generating];
+    }
+    return caparr;
+}
+
+const captcha = generatingCap();
+        display.textContent = captcha;
+       
+function check(){
+    const input=document.querySelector(`.capctha`).value.trim();
+    if(input===captcha){
+        alert("you have entered the correct capctha");     
+    }
+    else{
+        alert("wrong capctha");
+    }
+}
+document.querySelector(`.capctha`).addEventListener('keydown',function(event){
+   
+    if(event.key==='Enter'){
+        check();
+    }
+    
+})
+
+const login=document.querySelector(`.login`);
+login.addEventListener('click',function(){
+    const input=document.querySelector(`.capctha`).value.trim();
+    if(input===captcha){
+        document.location.href="index.html";
+        
+    }
+    else{
+        alert("captcha is wrong");
+    }
+
+    })
+
+
+
+    </script>
+</body>
+</html>

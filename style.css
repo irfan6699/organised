@@ -1,0 +1,279 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    background-color: #D8E3E7; /* Lighter and neutral background for a modern look */
+}
+
+
+.zoom-out {
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.zoom-out-active {
+    transform: scale(0);
+}
+
+.navbar2{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8D6B4C; /* Warm brown for secondary navbar */
+    color: #F5F5DC; /* Bisque color for text */
+}
+.navbar2 span{
+    font-weight: 800;
+    font-size: large;
+}
+.row1, .row2, .row3, .row4{
+    margin: 20px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+.row3, .row4{
+    justify-content: space-evenly;
+}
+.stories{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F0F4F8; /* Light blue-gray background */
+    background-color: #715053;
+}
+.s1{
+    background-image: url("images/story1.jpg");
+    background-size: cover;
+}
+.s2{
+    background-image: url("images/story7.jpg");
+    background-size: cover;
+}
+.s3{
+    background-image: url("images/story3.jpg");
+    background-size: cover;
+}
+.s4{
+    background-image: url("images/story4.jpg");
+    background-size: cover;
+}
+.s5{
+    background-image: url("images/story5.jpg");
+    background-size: cover;
+}
+.s6{
+    background-image: url("images/story6.jpg");
+    background-size: cover;
+}
+.s7{
+    background-image: url("images/storynew1.jpg");
+    background-size: cover;
+}
+
+.stories1{
+    width: 9%;
+    height: 70%;
+    margin-left: 3%;
+    border-radius: 50%;
+    background-color: #A9BA9D; /* Light green for story elements */
+}
+.stories button{
+    height: 30px;
+    padding: 5px;
+    color: #F5F5DC; /* Light text on buttons */
+    margin-top: 80px;
+    background-color: #8D6B4C; /* Warm brown button background */
+}
+.in img{
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}
+.in button{
+    width: 50px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 20px;
+    margin-right: 7px;
+    background-color: #A9BA9D; /* Light green button */
+    border: none;
+}
+.stories1:hover{
+    border: 3px solid #2E4C6D; /* Dark Blue hover effect */
+}
+.video-frame-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 50;
+    z-index: 9999;
+}
+.videoframe{
+    width: 80%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background-color: white;
+
+}
+.videoframe video {
+    width: 100%;
+    height: auto;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.box{
+    width: 20%;
+    font-weight: bold;
+    background-color: #E1DCD4; /* Light beige for boxes */
+    margin: 10px;
+    justify-content: left;
+}
+.row13, .row14{
+    width: 239.33px;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+.in{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#boximg, #boximg2, #boximg3, #boximg4, #diwali, #holi, #eid, #christmas, #acc1, #acc2, #acc3, #acc4{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: bottom;
+    height: 80%;
+    width: 239px;
+}
+#boximg{
+    background-image: url(images/onam.jpg);
+}
+
+#boximg2{
+    background-image: url(images/pongal.jpg);
+}
+#boximg3{
+    background-image: url(images/jan.jpg);
+}
+#boximg4{
+    background-image: url(images/gc.jpeg.jpg);
+}
+
+#diwali{
+    background-image: url(images/DIWALI.jpeg);
+}
+#holi{
+    background-image: url(images/HOLI.jpeg.jpg);
+}
+#eid{
+    background-image: url(images/e3.jpeg);
+}
+#christmas{
+    background-image: url(images/CHRISTMAS.jpeg.jpg);
+}
+/* New Additions */
+#acc1{
+    background-image: url(images/acc1.jpg);
+}
+#acc2{
+    background-image: url(images/acc2.jpg);
+}
+#acc3{
+    background-image: url(images/acc3.jpeg.jpg);
+}
+#acc4{
+    background-image: url(images/acc4.jpeg.jpg);
+}
+
+.slider{
+    margin: 10px;
+    height: 600px;
+    background-color: #FFF; /* White background for slider */
+    width: 60%;
+    background-image: url(images/jwellery.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.stories button{
+    border: none;
+    align-items: flex-end;
+}
+.slider p{
+    margin-top: 500px;
+    color: #FFF; /* White text in slider */
+    text-align: center;
+    justify-content: end;
+}
+h2{
+    margin: 30px;
+}
+.class41, .class42, .class43, .class44{
+    width: 20%;
+    font-weight: bold;
+    background-color: #E1DCD4; /* Light beige for these boxes */
+    margin: 10px;
+}
+/* Additional styling for traditional section */
+.shop-traditional{
+    color: #E63946; /* Coral Red for highlighted text */
+}
+.frameforclick {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.imageframe {
+    background: #fff;
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+#close-btn1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
