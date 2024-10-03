@@ -77,6 +77,10 @@ if (home) {
         window.location.href = "index.html";
     });
 }
+const onboard=document.querySelector(`.onboard`);
+if(onboard){
+    onboard.addEventListener("click",()=>redirectWithZoom("onboard.html"))
+}
 const loginpg = document.getElementById('login');
 if (loginpg) {
     loginpg.addEventListener('click', () => redirectWithZoom("loginpg.html"));
@@ -89,7 +93,10 @@ const stories = document.getElementById('story');
 if (stories) {
     stories.addEventListener('click', () => redirectWithZoom("stories.html"));
 }
-
+const cart =document.querySelector(`.icon-cart`);
+if(cart){
+ cart.addEventListener('click',()=>redirectWithZoom("checkout.html"));
+}
 }
 
 const storyelement = document.querySelectorAll('.stories1');

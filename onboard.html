@@ -6,63 +6,66 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Georgia', serif; /* Traditional font style */
+            background-color: #faf3e0; /* Soft, warm background color */
         }
 
         /* Row Container */
         .row1 {
-            display: flex;
-            height: 60px;
-            width: 100%; /* Ensures the rows fill the container */
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Adjusted for better alignment */
+            gap: 10px; /* Add gap between name and value */
+            height: auto;
+            padding: 15px; /* Add padding for better spacing */
+            border-radius: 8px; /* Rounded corners for a soft look */
+            background-color: #f2d7a6; /* Light, earthy background color */
             align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            color: white;
             font-weight: bold;
-            
         }
 
         /* Container for rows */
         .row-combination {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Adds spacing between rows */
-           
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto; /* Add margin for proper spacing */
+            width: 90%; /* Adjust width for centered alignment */
         }
 
+        /* Row text styling */
         .row1 p {
-            margin:0;
-            padding: 0;
+            margin: 0;
         }
 
         /* Navigation Bar */
         .nav {
-            height: 40px;
+            height: 50px;
             width: 100%;
-            background-color: #ffe4c4;
+            background-color: #e1b382; /* Traditional earthy color */
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             font-size: 18px;
+            font-family: 'Georgia', serif; /* Consistent traditional font */
             cursor: pointer;
             transition: background-color 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .nav:hover {
-            background-color: #ffc107;
+            background-color: #cc7a33; /* Darker hover color */
         }
 
         /* Sidebar Box */
         .text-box {
             width: 400px;
             height: 100vh;
-            background-color: #fff7e6;
+            background-color: #fff4e6;
             position: fixed;
             right: -500px;
             display: flex;
-            top:0;
+            top: 0;
             flex-direction: column;
             padding: 20px;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
@@ -79,6 +82,7 @@
             font-size: 16px;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #8c6239; /* Traditional color for label text */
         }
 
         /* Input and Button Styling */
@@ -86,14 +90,16 @@
             margin-bottom: 15px;
             padding: 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
+            border: 1px solid #b89d7a;
             border-radius: 5px;
+            background-color: #f5efe4;
         }
 
         .text-box button {
+            margin-top: 20px;
             padding: 10px;
             font-size: 14px;
-            background-color: #5dbb63;
+            background-color: #b04d27;
             color: white;
             border: none;
             border-radius: 5px;
@@ -102,8 +108,9 @@
         }
 
         .text-box button:hover {
-            background-color: #379a42;
+            background-color: #8a3a1a;
         }
+
 
     </style>
     <meta charset="UTF-8">
@@ -112,7 +119,11 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <div class="nav">Toggle Form</div>
+     <div class="navbar"></div>
+    <div class="nav">
+        <p>onboard</p>
+    <p class="register">register</p>
+</div>
 
     <!-- Row Combination -->
     <div class="row-combination"></div>
@@ -120,59 +131,144 @@
     <!-- Slide-out Sidebar -->
     <div class="text-box">
         <label for="name">Name</label>
-        <input class="name" placeholder="Enter name">
+        <input class="name" placeholder="Enter name" type="text">
         <label for="type">Type</label>
-        <input class="type" placeholder="Enter type">
+        <input class="input-type" placeholder="Enter type" type="text">
         <label for="contact">Contact Us</label>
-        <input class="contact" placeholder="Enter contact">
+        <input class="contact" placeholder="Enter contact" type="text">
         <label for="state">State</label>
-        <input class="state" placeholder="Enter state">
+        <input class="state" placeholder="Enter state" type="text">
         <button class="enter">Enter</button>
+        <button class="back">Back</button>
     </div>
 
     <script>
      let colourCount = 0;    
-    const nav = document.querySelector('.nav');
-    const box = document.querySelector('.text-box');
-    const enter = document.querySelector('.enter');
-    const combination = document.querySelector('.row-combination');
+const nav = document.querySelector('.nav');
+const box = document.querySelector('.text-box');
+const enter = document.querySelector('.enter');
+const combination = document.querySelector('.row-combination');
+const register = document.querySelector(`.register`);
+const back = document.querySelector(`.back`);
 
-    // Toggle sidebar visibility
-    nav.addEventListener("click", () => {
-        box.classList.toggle('active');
+fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.querySelector(`.navbar`).innerHTML = data;
+        runafterattach();
     });
 
-    // Update row1 with user input
-    //hi
-    enter.addEventListener("click", () => {
-        colourCount++;
-        
-        // Create a new row with the user input
+function runafterattach() {
+    const cart = document.querySelector(`.icon-cart`);
+    if (cart) {
+        cart.addEventListener('click', () => redirectWithZoom("checkout.html"));
+    }
+    const redirectWithZoom = (targetUrl) => {
+        document.body.classList.add('zoom-out-active');
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 500);
+    };
+    const directTra = document.getElementById('tra');
+    if (directTra) {
+        directTra.addEventListener('click', () => redirectWithZoom("shopping.html"));
+    }
+    const story = document.querySelector('.more');
+    if (story) {
+        story.addEventListener('click', () => redirectWithZoom("stories.html"));
+    }
+    let home = document.querySelector('.logo');
+    if (home) {
+        home.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    }
+    const onboard = document.querySelector(`.onboard`);
+    if (onboard) {
+        onboard.addEventListener("click", () => redirectWithZoom("onboard.html"));
+    }
+    const loginpg = document.getElementById('login');
+    if (loginpg) {
+        loginpg.addEventListener('click', () => redirectWithZoom("loginpg.html"));
+    }
+    const wedding = document.querySelector('.wedding');
+    if (wedding) {
+        wedding.addEventListener('click', () => redirectWithZoom("wedding.html"));
+    }
+    const stories = document.getElementById('story');
+    if (stories) {
+        stories.addEventListener('click', () => redirectWithZoom("stories.html"));
+    }
+}
+
+// Toggle sidebar visibility
+register.addEventListener("click", () => {
+    box.classList.toggle('active');
+});
+back.addEventListener("click", () => {
+    box.classList.toggle('active');
+});
+
+// Form submission and saving data
+enter.addEventListener("click", () => {
+    colourCount++;
+
+    // Get input values
+    const nameValue = document.querySelector('.name').value;
+    const typeValue = document.querySelector('.input-type').value;
+    const contactValue = document.querySelector('.contact').value;
+    const stateValue = document.querySelector('.state').value;
+
+    // Store data in localStorage
+    const storedData = JSON.parse(localStorage.getItem('formData')) || [];
+    storedData.push({ name: nameValue, type: typeValue, contact: contactValue, state: stateValue });
+    localStorage.setItem('formData', JSON.stringify(storedData));
+
+    // Create a new row with user input
+    const newRow = document.createElement('div');
+    newRow.classList.add('row1');
+    newRow.innerHTML = `
+        <p>Name -</p>
+        <p id="name-output">${nameValue}</p>
+        <p>Type -</p>
+        <p id="type-output">${typeValue}</p>
+        <p>Contact -</p>
+        <p id="contact-output">${contactValue}</p>
+        <p>State -</p>
+        <p id="state-output">${stateValue}</p>
+    `;
+    combination.appendChild(newRow);
+    newRow.style.backgroundColor = (colourCount % 2 === 0) ? "red" : "blue";
+
+    // Clear input fields
+    document.querySelector('.name').value = '';
+    document.querySelector('.input-type').value = '';
+    document.querySelector('.contact').value = '';
+    document.querySelector('.state').value = '';
+});
+
+// Load stored data on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const storedData = JSON.parse(localStorage.getItem('formData')) || [];
+
+    storedData.forEach((data, index) => {
         const newRow = document.createElement('div');
         newRow.classList.add('row1');
         newRow.innerHTML = `
             <p>Name -</p>
-            <p id="name-output">${document.querySelector('.name').value}</p>
+            <p id="name-output">${data.name}</p>
             <p>Type -</p>
-            <p id="type-output">${document.querySelector('.type').value}</p>
+            <p id="type-output">${data.type}</p>
             <p>Contact -</p>
-            <p id="contact-output">${document.querySelector('.contact').value}</p>
+            <p id="contact-output">${data.contact}</p>
             <p>State -</p>
-            <p id="state-output">${document.querySelector('.state').value}</p>
+            <p id="state-output">${data.state}</p>
         `;
-///hdhje
-       
         combination.appendChild(newRow);
-        
-        
-        newRow.style.backgroundColor = (colourCount % 2 === 0) ? "red" : "blue";
-
-       
-        document.querySelector('.name').value = '';
-        document.querySelector('.type').value = '';
-        document.querySelector('.contact').value = '';
-        document.querySelector('.state').value = '';
+        newRow.style.backgroundColor = (index % 2 === 0) ? "red" : "blue"; // Alternate background colors
     });
+});
+
     </script>
 </body>
 </html>

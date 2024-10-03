@@ -31,6 +31,10 @@ function runafterattach(){
             window.location.href = "index.html";
         });
     }
+    const cart =document.querySelector(`.icon-cart`);
+    if(cart){
+     cart.addEventListener('click',()=>redirectWithZoom("checkout.html"));
+    }
     const loginpg = document.getElementById('login');
     if (loginpg) {
         loginpg.addEventListener('click', () => redirectWithZoom("loginpg.html"));
